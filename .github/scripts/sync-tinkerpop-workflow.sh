@@ -16,6 +16,8 @@ yq -P -i '(.jobs.* | select(.strategy != null)).strategy.matrix.os = ["ubuntu-24
 yq -P -i '.jobs.*.runs-on = "${{ matrix.os }}"' .github/workflows/benchmark.yml
 yq -P -i '(.jobs.*.steps.[] | select(.uses == "actions/checkout@v4").with.repository) = "apache/tinkerpop"' .github/workflows/benchmark.yml
 yq -P -i '(.jobs.*.steps.[] | select(.uses == "actions/checkout@v4").with.ref) = "master"' .github/workflows/benchmark.yml
+yq -P -i '(.jobs.*.steps.[] | select(.uses == "actions/checkout@v3").with.repository) = "apache/tinkerpop"' .github/workflows/benchmark.yml
+yq -P -i '(.jobs.*.steps.[] | select(.uses == "actions/checkout@v3").with.ref) = "master"' .github/workflows/benchmark.yml
 
 # Clean up
 rm -rf temp-tinkerpop
