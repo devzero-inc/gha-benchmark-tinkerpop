@@ -1,0 +1,31 @@
+name: Setup Tinkerpop Build/Test
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # https://crontab.guru/#5_*/1_*_*_*
+    - cron: "5 */1 * * *"
+
+permissions: write-all
+
+jobs:
+  setup:
+    runs-on: devzero-ubuntu-24.04
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GHA_BENCHMARK }}
+
+      - name: Install yq
+        run: |
+          if ! command -v yq &> /dev/null; then
+            sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+            sudo chmod a+x /usr/local/bin/yq
+          fi
+
+      - name: Run sync script
+        env:
+          GHA_BENCHMARK: ${{ secrets.GHA_BENCHMARK }}
+        run: |
+          ./.github/scripts/sync-tinkerpop-workflow.sh "dray92@uw.edu" "debot"
