@@ -26,6 +26,7 @@ jobs:
           - ubuntu-24.04
           - devzero-ubuntu-24.04
           - devzero-ubuntu-24.04-lab
+          - devzero-ubuntu-24.04-lab-kata-overlayfs
   java-jdk17:
     name: mvn clean install - jdk17
     timeout-minutes: 45
