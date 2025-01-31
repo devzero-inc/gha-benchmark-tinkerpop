@@ -25,6 +25,7 @@ jobs:
         os:
           - ubuntu-24.04
           - devzero-ubuntu-24.04
+          - devzero-ubuntu-24.04-lab
   java-jdk17:
     name: mvn clean install - jdk17
     timeout-minutes: 45
@@ -47,6 +48,7 @@ jobs:
         os:
           - ubuntu-24.04
           - devzero-ubuntu-24.04
+          - devzero-ubuntu-24.04-lab
   java-jdk11:
     name: mvn clean install - jdk11
     timeout-minutes: 45
@@ -73,6 +75,7 @@ jobs:
         os:
           - ubuntu-24.04
           - devzero-ubuntu-24.04
+          - devzero-ubuntu-24.04-lab
   java-jdk8:
     name: mvn clean install - jdk8
     timeout-minutes: 45
