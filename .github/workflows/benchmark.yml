@@ -21,6 +21,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean install -DskipTests -Dci --batch-mode -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
     strategy:
+      fail-fast: false
       matrix:
         os:
           - ubuntu-24.04
@@ -60,6 +61,7 @@ jobs:
           key: ${{ github.sha }}
           # Disabled until Linux containers are supported on Windows runners: https://github.com/actions/virtual-environments/issues/252
     strategy:
+      fail-fast: false
       matrix:
         os:
           - ubuntu-24.04
