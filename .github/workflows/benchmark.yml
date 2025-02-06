@@ -12,9 +12,9 @@ jobs:
       - run: |
           cat /proc/mounts
           lsblk
-          lvs -ao+devices
-          pvs
-          vgs
+          sudo lvs -ao+devices || true
+          sudo pvs || true
+          sudo vgs || true
           ls -alh /home/runner
       - uses: actions/checkout@v4
         with:
