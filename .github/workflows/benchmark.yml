@@ -30,3 +30,4 @@ jobs:
           - devzero-ubuntu-24.04-lab-kata-overlayfs
           - devzero-ubuntu-24.04-sysbox
           - devzero-ubuntu-24.04-bare-metal
+          - devzero-ubuntu-24.04-bare-metal-gp3-fast
