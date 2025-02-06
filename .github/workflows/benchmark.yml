@@ -9,6 +9,9 @@ jobs:
     timeout-minutes: 10
     runs-on: ${{ matrix.os }}
     steps:
+      - run: |
+          cat /proc/mounts
+          lsblk
       - uses: actions/checkout@v4
         with:
           repository: apache/tinkerpop
@@ -21,6 +24,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean install -DskipTests -Dci --batch-mode -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
     strategy:
+      fail-fast: false
       matrix:
         os:
           - ubuntu-24.04
