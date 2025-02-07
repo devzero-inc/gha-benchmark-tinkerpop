@@ -25,6 +25,7 @@ jobs:
         os:
           - ubuntu-24.04
           - devzero-ubuntu-24.04
+          - devzero-ubuntu-24.04-bare-metal
   java-jdk17:
     name: mvn clean install - jdk17
     timeout-minutes: 45
